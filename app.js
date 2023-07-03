@@ -1,13 +1,12 @@
-require('dotenv').config();
+require('dotenv/config');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+// Middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-// Middlewares
 app.use(cors());
 
 // Import routes
@@ -26,7 +25,7 @@ mongoose
       mongoose.connection.name
     );
   })
-  .catch((err) => console.log(err));
+  .catch(err => console.log(err));
 
 // Routes
 app.get('/', (req, res) => {
